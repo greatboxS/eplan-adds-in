@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings format="2">
+  <!--
+	<CAT name="USER">
+		<MOD name="Eplan.EplApi.HEServices">
+			<Setting name="xxx" ver="1" type="string" range="" desc="" info="">
+				<Default>
+					<Val>yyy</Val>
+				</Default>
+			</Setting>
+		</MOD >
+	</CAT >
+-->
+</Settings>

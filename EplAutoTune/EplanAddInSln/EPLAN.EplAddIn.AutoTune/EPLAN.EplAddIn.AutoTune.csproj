@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BBCE2505-567F-4F49-B38C-D89F56831A45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EPLAN.EplAddIn.AutoTune</RootNamespace>
+    <AssemblyName>EPLAN.EplAddIn.AutoTune</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Eplan.EplApi.AFu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.AFu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.Baseu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.Baseu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.DataModelu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.DataModelu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.EServicesu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.EServicesu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.Guiu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.Guiu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.HEServicesu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.HEServicesu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.MasterDatau, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.MasterDatau.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.RecorderToolsu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.RecorderToolsu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.RemoteClientu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.RemoteClientu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.RemoteClientu.resources">
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.RemoteClientu.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.Remotingu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.Remotingu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.Simulationu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.Simulationu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.Starteru, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.Starteru.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.Systemu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.Systemu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplApi.WebServiceu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ecea1219c93267ce, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplApi.WebServiceu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplCoreAddin.BatchServerHostu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplCoreAddin.BatchServerHostu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplCoreAddin.BSClientGuiu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ecea1219c93267ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplCoreAddin.BSClientGuiu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplCoreAddIn.ECBridgeu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplCoreAddIn.ECBridgeu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplCoreAddIn.ECu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ecea1219c93267ce, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplCoreAddIn.ECu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplCoreAddIn.EDatau, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e88d9ebac658a356, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplCoreAddIn.EDatau.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplCoreAddin.EdpAdapteru, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e88d9ebac658a356, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplCoreAddin.EdpAdapteru.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplCoreAddIn.EDPWebViewu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e88d9ebac658a356, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplCoreAddIn.EDPWebViewu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplCoreAddIn.EdzSupportu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e88d9ebac658a356, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplCoreAddIn.EdzSupportu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplCoreAddin.GraphicalMacroChoosingu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ecea1219c93267ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplCoreAddin.GraphicalMacroChoosingu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplCoreAddin.MultiuserMonitoru, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ecea1219c93267ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplCoreAddin.MultiuserMonitoru.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplCoreAddIn.PerformanceLoggingu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplCoreAddIn.PerformanceLoggingu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplExt.MultiuserMonitorClientu, Version=0.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplExt.MultiuserMonitorClientu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplExt.MultiuserMonitorCommonu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplExt.MultiuserMonitorCommonu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplExt.PerfLoggerLogu, Version=0.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplExt.PerfLoggerLogu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplSDK.WebControlResu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplSDK.WebControlResu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplSDK.WebControlu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplSDK.WebControlu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplSDK.WPF.Controlsu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplSDK.WPF.Controlsu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplSDK.WPF.DB.Interfacesu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplSDK.WPF.DB.Interfacesu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplSDK.WPF.DBu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplSDK.WPF.DBu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplSDK.WPF.Interfacesu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplSDK.WPF.Interfacesu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.EplSDK.WPFu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.EplSDK.WPFu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.FileServer.Clientu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.FileServer.Clientu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.ScriptSynchronizer.Clientu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.ScriptSynchronizer.Clientu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.ScriptSynchronizer.Commonu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.ScriptSynchronizer.Commonu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.SOA.Utilsu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e88d9ebac658a356, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.SOA.Utilsu.dll</HintPath>
+    </Reference>
+    <Reference Include="Eplan.W3.Utilsu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e88d9ebac658a356, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\Eplan.W3.Utilsu.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=5.4.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.4.2\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Add-Ins\AddInModule.cs" />
+    <Compile Include="Apps\AutoTuneApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\AutoTuneApp.Designer.cs">
+      <DependentUpon>AutoTuneApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apps\DrawingExtention\DefinitionPinControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Apps\DrawingExtention\DefinitionPinControl.Designer.cs">
+      <DependentUpon>DefinitionPinControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apps\DrawingExtention\EplDrawControlExtension.cs" />
+    <Compile Include="Apps\DrawingExtention\EplDrawEnum.cs" />
+    <Compile Include="Apps\DrawingExtention\EplDrawingExtention.cs" />
+    <Compile Include="Apps\DrawingExtention\EplDrawingModel.cs" />
+    <Compile Include="Apps\DrawingExtention\SymbolAutoDrawingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\DrawingExtention\SymbolAutoDrawingForm.Designer.cs">
+      <DependentUpon>SymbolAutoDrawingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apps\Epl\Logger.cs" />
+    <Compile Include="Apps\EplControlExtensions\EplControlExtension.cs" />
+    <Compile Include="Apps\Epl\EplDeviceProperties.cs" />
+    <Compile Include="Apps\Epl\EplAutoGenConfig.cs" />
+    <Compile Include="Apps\Epl\EplDefinition.cs" />
+    <Compile Include="Apps\Epl\EplExtension.cs" />
+    <Compile Include="Apps\Epl\EplMacroProperties.cs" />
+    <Compile Include="Apps\Epl\EplObjectDisplay.cs" />
+    <Compile Include="Apps\Epl\EplPageMacroProperties.cs" />
+    <Compile Include="Apps\Epl\EplPageProperties.cs" />
+    <Compile Include="Apps\Epl\EplPartProperties.cs" />
+    <Compile Include="Apps\Epl\EplProjectProperties.cs" />
+    <Compile Include="Apps\Epl\EplSymbolMacroProperties.cs" />
+    <Compile Include="Apps\Epl\EplSymbolProperties.cs" />
+    <Compile Include="Apps\Epl\EplWindowMacroProperties.cs" />
+    <Compile Include="Apps\Epl\PartFreeProperties.cs" />
+    <Compile Include="Apps\Excel\ExcelConfiguration.cs" />
+    <Compile Include="Apps\Excel\ExcelExtension.cs" />
+    <Compile Include="Apps\Excel\ExcelPartImport.cs" />
+    <Compile Include="Apps\GenRulesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\GenRulesForm.Designer.cs">
+      <DependentUpon>GenRulesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apps\ImportPartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\ImportPartForm.Designer.cs">
+      <DependentUpon>ImportPartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apps\Excel\MessageBase.cs" />
+    <Compile Include="Apps\Modules\AppConfig.cs" />
+    <Compile Include="Apps\Modules\GenerationRules.cs" />
+    <Compile Include="Apps\Modules\GenGlobal.cs" />
+    <Compile Include="Add-Ins\AutoTuneAction.cs" />
+    <Compile Include="Apps\PartFreePropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\PartFreePropertiesForm.Designer.cs">
+      <DependentUpon>PartFreePropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutoTuneSetting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>AutoTuneSetting.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\RegisterScriptMenu.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Apps\AutoTuneApp.resx">
+      <DependentUpon>AutoTuneApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apps\DrawingExtention\DefinitionPinControl.resx">
+      <DependentUpon>DefinitionPinControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apps\DrawingExtention\SymbolAutoDrawingForm.resx">
+      <DependentUpon>SymbolAutoDrawingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apps\GenRulesForm.resx">
+      <DependentUpon>GenRulesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apps\ImportPartForm.resx">
+      <DependentUpon>ImportPartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apps\PartFreePropertiesForm.resx">
+      <DependentUpon>PartFreePropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme\GenFile.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="AutoTuneSetting.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>AutoTuneSetting.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.DefinitionPinControl.datasource" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.DrawDisplayText.datasource" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.DrawLayoutModel.datasource" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.DrawPinModel.datasource" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.EplDrawingModel.datasource" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.EplPartProperties.datasource" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.EplProjectProperties.datasource" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.MessageBase.datasource" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.Modules.AppConfig.datasource" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.Outline.datasource" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.PartFreeProperties.datasource" />
+    <None Include="Properties\DataSources\EPLAN.EplAddIn.AutoTune.Apps.PinCollectionItem.datasource" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

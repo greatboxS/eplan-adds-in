@@ -1,0 +1,11 @@
+﻿/* Auto Tune
+	Auto Eplan tool for automatic generating circuit diagram
+
+	=> Gen excel file configuration:
+	
+	.sheet:
+	0. Project configuration information.
+	1. Pages configuration information.
+	2. Circuit configuration
+	3. Device
+*/

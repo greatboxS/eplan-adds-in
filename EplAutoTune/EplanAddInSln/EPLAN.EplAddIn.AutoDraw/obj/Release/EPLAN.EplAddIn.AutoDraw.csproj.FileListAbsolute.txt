@@ -1,0 +1,14 @@
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\bin\Release\EPLAN.EplAddIn.AutoDraw.dll
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\bin\Release\EPLAN.EplAddIn.AutoDraw.pdb
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\bin\Release\EPLAN.EplAddIn.AutoTune.dll
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\bin\Release\EPPlus.dll
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\bin\Release\Newtonsoft.Json.dll
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\bin\Release\EPLAN.EplAddIn.AutoTune.pdb
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\bin\Release\EPLAN.EplAddIn.AutoTune.dll.config
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\bin\Release\EPPlus.xml
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\bin\Release\Newtonsoft.Json.xml
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\obj\Release\EPLAN.EplAddIn.AutoDraw.csprojAssemblyReference.cache
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\obj\Release\EPLAN.EplAddIn.AutoDraw.csproj.CoreCompileInputs.cache
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\obj\Release\EPLAN.EplAddIn.AutoDraw.csproj.CopyComplete
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\obj\Release\EPLAN.EplAddIn.AutoDraw.dll
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EPLAN.EplAddIn.AutoDraw\obj\Release\EPLAN.EplAddIn.AutoDraw.pdb

@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Eplan.EplApi.Remotingu</name>
+    </assembly>
+    <members>
+        <member name="T:Eplan.EplApi.Remoting.CallingContext">
+            <summary>
+            Eplan server calling context
+            </summary> 
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.CallingContext.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.CallingContext.Finalize">
+            <summary>
+            Destructor.
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.CallingContext.Set(System.String,System.Object)">
+            <summary>
+            Sets a new parameter.
+            </summary>
+            <param name="strName">Parameter name.</param>
+            <param name="oValue">Parameter value.</param>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.CallingContext.Get(System.String,System.Object@)">
+            <summary>
+            Gets parameter value.
+            </summary>
+            <param name="strName">Parameter name.</param>
+            <param name="oValue">Parameter value.</param>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.CallingContext.Remove(System.String)">
+            <summary>
+            Remove a parameter.
+            </summary>
+            <param name="strName">Parameter name.</param>      
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.CallingContext.Clear">
+            <summary>
+            Clear all parameters.
+            </summary>
+        </member>
+        <member name="P:Eplan.EplApi.Remoting.CallingContext.Parameters">
+            <summary>
+            Parameters and values
+            </summary>
+        </member>
+        <member name="P:Eplan.EplApi.Remoting.CallingContext.Message">
+            <summary>
+            String message
+            </summary>
+        </member>
+        <member name="P:Eplan.EplApi.Remoting.CallingContext.Succeed">
+            <summary>
+            Succeed flag
+            </summary>
+        </member>
+        <member name="T:Eplan.EplApi.Remoting.EplanResponse">
+            <summary>
+            Eplan Server response 
+            </summary>   
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.EplanResponse.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.EplanResponse.#ctor(Eplan.EplApi.Remoting.CallingContext)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:Eplan.EplApi.Remoting.EplanResponse.AsyncCallCompleted">
+            <summary>
+            Indicates that an asynchronous call is terminated.
+            </summary>
+        </member>
+        <member name="T:Eplan.EplApi.Remoting.IEplanRemotingCallBack">
+            <summary>
+            Communication Callback interface to send a response to a Client.
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.IEplanRemotingCallBack.SendResponseToClient(Eplan.EplApi.Remoting.EplanResponse)">
+            <summary>
+            Send a response to a Client.
+            </summary>
+            <param name="response">Response.</param>
+        </member>
+        <member name="T:Eplan.EplApi.Remoting.IEplanRemoting">
+            <summary>
+            Eplan Communication interface
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.IEplanRemoting.ExecuteAction(System.String,Eplan.EplApi.Remoting.CallingContext@)">
+            <summary>
+            Execute an action synchronously.
+            </summary>	
+            <param name="strAction">Action name.</param>
+            <param name="oContext">Calling context.</param>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.IEplanRemoting.ExecuteActionAsynch(System.String,Eplan.EplApi.Remoting.CallingContext)">
+            <summary>
+            Execute an action asynchronously.
+            </summary>	
+            <param name="strAction">Action name.</param>
+            <param name="oContext">Calling context.</param>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.IEplanRemoting.SelectObjects(System.String,System.Collections.Specialized.StringCollection,System.Boolean)">
+            <summary>
+            Select Objects in Ged.
+            </summary>	
+            <param name="strFullProjectName">Full project path name.</param>
+            <param name="objectIds">Ids of objects to select.</param>
+            <param name="bDeselectAll">Deselect all objects which already selected.</param>
+            <returns>Eplan response.</returns>
+            <remarks>This call is executed synchronously.</remarks>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.IEplanRemoting.SelectObjectsAsynch(System.String,System.Collections.Specialized.StringCollection,System.Boolean)">
+            <summary>
+            Select Objects in Ged.
+            </summary>	
+            <param name="strFullProjectName">Full project path name.</param>
+            <param name="objectIds">Ids of objects to select.</param>
+            <param name="bDeselectAll">Deselect all objects which already selected.</param>		
+            <remarks>This call is executed asynchronously.</remarks>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.IEplanRemoting.LockUnlockAllObjects(System.String,System.Boolean)">
+            <summary>
+            Lock or unlock all Objects.
+            </summary>	
+            <param name="strFullProjectName">Full project path name.</param>
+            <param name="bLock">lock or unlock flag.</param>      
+            <returns>Eplan response.</returns>
+            <remarks>This call is executed synchronously.</remarks>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.IEplanRemoting.LockUnlockAllObjectsAsynch(System.String,System.Boolean)">
+            <summary>
+            Lock or unlock all Objects.
+            </summary>	
+            <param name="strFullProjectName">Full project path name.</param>
+            <param name="bLock">lock or unlock flag.</param>       			
+            <remarks>This call is executed asynchronously.</remarks>
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.IEplanRemoting.Connect">
+            <summary>
+            Connect to service.
+            </summary>	
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.IEplanRemoting.Disconnect">
+            <summary>
+            Disconnect from service.<para></para>
+            </summary>        
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.IEplanRemoting.Ping">
+            <summary>
+            Ping a service.
+            </summary>        
+        </member>
+        <member name="M:Eplan.EplApi.Remoting.IEplanRemoting.DisableSynchronizingCalls(System.Boolean)">
+             <summary>
+             Disable synchronizing calls.
+             The execution of remote calls are synchronized in EPLAN. A remote call is executed only if the EPLAN Application is in an idle situation and there is no action running.
+             Otherwise the call will wait until the EPLAN application is idle and no action is running.
+             This property can be used to disable this mode. If calls synchronization is disabled, remote calls are executed in EPLAN although the EPLAN application is not in an idle situation.
+            </summary>  
+        </member>
+    </members>
+</doc>

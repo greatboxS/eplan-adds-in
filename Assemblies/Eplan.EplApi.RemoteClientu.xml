@@ -1,0 +1,784 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Eplan.EplApi.RemoteClientu</name>
+    </assembly>
+    <members>
+        <member name="T:Eplan.EplApi.RemoteClient.CommunicationException">
+            <summary>
+            Eplan Communication Exception
+            It is throw when no communication to an EPLAN instance could be established.
+            </summary>    
+        </member>
+        <member name="T:Eplan.EplApi.RemoteClient.OnResponseArrivedHandler">
+            <summary>
+            Represents the method that will be invoked when Eplan Server sends a response to a Client.
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="T:Eplan.EplApi.RemoteClient.EplanServerData">
+            <summary>
+            Eplan server data
+            </summary>    
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanServerData.#ctor">
+            <summary>
+            Eplan server Data        
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanServerData.#ctor(System.Int32)">
+            <summary>
+            Eplan server Data        
+            </summary>
+            <param name="nPID">Eplan Process ID</param>
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanServerData.ServerName">
+            <summary>
+            Eplan server Name
+            </summary> 
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanServerData.ServerPort">
+            <summary>
+            Eplan server port
+            </summary> 
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanServerData.EplanPath">
+            <summary>
+            Eplan full path
+            </summary> 
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanServerData.EplanVariant">
+            <summary>
+            Eplan variant
+            </summary> 
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanServerData.EplanVersion">
+            <summary>
+            Eplan version
+            </summary> 
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanServerData.EplanProcessID">
+            <summary>
+            Eplan Process ID
+            </summary>
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanServerData.Is64Bit">
+            <summary>
+            Is 64 Bit Eplan process? 
+            </summary> 
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanServerData.ErrorMsg">
+            <summary>
+            Error message
+            </summary> 
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanServerData.Clear">
+            <summary>
+            Clear
+            </summary> 
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplClientCallBack.HandleError(System.Exception)">
+             <summary>
+             HandleError.
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplClientCallBack.ProvideFault(System.Exception,System.ServiceModel.Channels.MessageVersion,System.ServiceModel.Channels.Message@)">
+             <summary>
+             ProvideFault.
+             This is a trivial implementation that converts Exception to FaultException.
+            </summary>        
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplClientCallBack.SendResponseToClient(Eplan.EplApi.Remoting.EplanResponse)">
+             <summary>
+             SendResponseToClient
+            </summary>
+             <param name="response">EplanResponse object</param>
+        </member>
+        <member name="T:Eplan.EplApi.RemoteClient.IEplanRemoteClient">
+            <summary>
+            Base interface for the communication with Eplan Server.
+            </summary>        
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.Connect(System.String,System.String)">
+             <summary>
+             Connect to Eplan Server.
+            </summary>
+            <param name="strCompterName">
+             Name or TCP-IP of the computer on which Eplan is running.
+            </param>
+            <param name="strPort">
+             Port number used from Eplan Service.      
+            </param>        
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.Connect(System.String,System.String,System.TimeSpan)">
+             <summary>
+             Connect to Eplan Server.
+            </summary>
+            <param name="strCompterName">
+             Name or TCP-IP of the computer on which Eplan is running.
+            </param>
+            <param name="strPort">
+             Port number used from Eplan Service.
+            </param>       
+             ///<param name="interval">
+             Waiting time of the connecting process. If the connecting time exceeds the value interval
+             a CommunicationException will be thrown.
+            </param>       
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.Disconnect">
+             <summary>
+             Disconnect from Eplan Server.
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.ExecuteAction(System.String)">
+             <summary>
+             Execute an action.
+            </summary>
+            <param name="strFullAction">
+             Action name or action name and all used parameters and values.
+            </param>      
+             <returns>
+             Returns true if Action is called successfully. Otherwise returns false.
+             </returns>
+             <remarks>
+             In which mode this call is executed, synchronously or asynchronously, depends on the SynchronousMode property. 
+             Per default all calls are executed asynchronously (except Connect). You can change this behavior by setting the SynchronousMode 
+             property to true in order to make synchronous calls.
+             </remarks>
+             <remarks> 
+             If the call is asynchronous, EPLAN application sends a completed-execution acknowledgment response when the call is completely executed.
+             The property AsyncCallCompleted in EplanResponse is set to true.
+             </remarks> 
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.ExecuteAction(System.String,Eplan.EplApi.Remoting.CallingContext@)">
+             <summary>
+             Execute an action.
+            </summary>
+            <param name="strAction">
+             Action name or action name and all used parameters and values. Parameters and values could be set in calling Context.
+            </param>       
+            <param name="context">
+             Calling context.
+            </param>
+             <returns>
+             Returns true if Action is called successfully. Otherwise returns false.
+             </returns>
+             <remarks> If the action did not succeed, an error message is reported in the calling context.</remarks>    
+             <remarks>
+             In which mode this call is executed, synchronously or asynchronously, depends on the SynchronousMode property. 
+             Per default all calls are executed asynchronously (except Connect). You can change this behavior by setting the SynchronousMode 
+             property to true in order to make synchronous calls.
+             </remarks>
+             <remarks> 
+             If the call is asynchronous, EPLAN application sends a completed-execution acknowledgment response when the call is completely executed.
+             The property AsyncCallCompleted in EplanResponse is set to true.
+             </remarks>             
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.SelectEplanObjects(System.String,System.Collections.Specialized.StringCollection,System.Boolean)">
+             <summary>
+             Selects objects in GED
+            </summary>
+            <param name="strFullProjectName">Full link file name of the
+                                          project. The already selected objects will be deselected.</param>		
+             <param name="objectIds">List of Ids of objects to be selected.
+             Note that an object Id MUST have three parts separated with slash: Type/Id/transient flag. Transient flag can have 2 values, 0 means object is persistent, 1 means object is transient.
+             e.g.: 17/142/0. When you get the object Id from <c>Properties.PROPUSER_DBOBJECTID</c>, you have to remove the first number (project id) and the first '/' from this String (see example).</param>
+             <param name="bDeselectAll">Deselect all objects which were already selected.</param>        
+             <remarks> The already selected objects will be deselected.
+             In which mode this call is executed, synchronously or asynchronously, depends on the SynchronousMode property. 
+             Per default all calls are executed asynchronously (except Connect). You can change this behavior by setting the SynchronousMode 
+             property to true in order to make synchronous calls.
+             If the call is asynchronous, EPLAN application sends a completed-execution acknowledgment response when the call is completely executed.
+             The property AsyncCallCompleted in EplanResponse is set to true.
+             </remarks> 
+             <example>
+             The following examples shows a method to mark all the motors on a given schematic page.
+             <code lang="C#">
+             private static void MarkMotorsOnPage(Page page)
+            {
+            		DMObjectsFinder dMObjectsFinder = new DMObjectsFinder(page.Project);
+            		FunctionsFilter functionsFilter = new FunctionsFilter();
+            		functionsFilter.Page = page;
+            		functionsFilter.Category = Function.Enums.Category.Motor;
+            		Function[] functions = dMObjectsFinder.GetFunctions(functionsFilter);
+            		StringCollection scFuncIds = new StringCollection();
+            		foreach (Function function in functions)
+            		{
+            			String objectId = function.Properties.PROPUSER_DBOBJECTID;
+            			int idxOfSlash = objectId.IndexOf("/", 1, objectId.Length - 1, StringComparison.InvariantCultureIgnoreCase);
+            			String objectIdWithoutProjectId = objectId.Substring(idxOfSlash + 1, (objectId.Length - idxOfSlash - 1));
+            			scFuncIds.Add(objectIdWithoutProjectId);
+            		}
+            
+                 // Connect to server via a remoting client
+                 EplanRemoteClient oClient = new EplanRemoteClient();
+                 try{       
+                      oClient.Connect(Environment.MachineName, "60000"); //In this case the Eplan server was started on port 60000
+                      //Connection is successful then select objects 
+            		     oClient.SelectObjects(page.Project.ProjectLinkFilePath, scFuncIds, true);
+                  }
+                  catch(Exception) 
+                  {
+                     // Connection to server failed!
+                  }
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.LockAllEplanObjects(System.String)">
+             <summary>
+             Lock all objects in given project.
+            </summary>
+            <param name="strFullProjectName">Full link file name of the project.</param>
+             <returns>
+             Returns an EplanResponse object.
+             </returns>
+             <remarks>
+             In which mode this call is executed, synchronously or asynchronously, depends on the SynchronousMode property. 
+             Per default all calls are executed asynchronously (except Connect). You can change this behavior by setting the SynchronousMode 
+             property to true in order to make synchronous calls.
+             If the call is asynchronous, EPLAN application sends a completed-execution acknowledgment response when the call is completely executed.
+             The property AsyncCallCompleted in EplanResponse is set to true.
+             </remarks> 
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.UnlockAllEplanObjects(System.String)">
+             <summary>
+             Unlock all objects in given project.
+            </summary>
+            <param name="strFullProjectName">Full link file name of the project.</param>		
+             <returns>
+             Returns an EplanResponse object.
+             </returns>
+             <remarks>
+             In which mode this call is executed, synchronously or asynchronously, depends on the SynchronousMode property. 
+             Per default all calls are executed asynchronously (except Connect). You can change this behavior by setting the SynchronousMode 
+             property to true in order to make synchronous calls.
+             If the call is asynchronous, EPLAN application sends a completed-execution acknowledgment response when the call is completely executed.
+             The property AsyncCallCompleted in EplanResponse is set to true.
+             </remarks> 
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.Ping">
+             <summary>
+             Ping the Eplan Server.
+            </summary>
+             <returns>
+             Returns true if Eplan Server is reachable. Otherwise returns false.
+             </returns>        
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.GetActiveEplanServersOnLocalMachine(System.Collections.Generic.List{Eplan.EplApi.RemoteClient.EplanServerData}@)">
+             <summary>
+             Get Eplan Servers which are currently active on local machine.
+            </summary>
+             <param name="lServers">List to be filled with information 
+             about Eplan remote servers currently active on local machine.</param>
+             <returns>
+             Remote call Response.
+             </returns>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.GetInstalledEplanVersionsOnLocalMachine(System.Collections.Generic.List{Eplan.EplApi.RemoteClient.EplanServerData}@)">
+             <summary>
+             Get Eplan versions which are currently installed on local machine.
+            </summary>
+             <param name="lEplanVersions">List to be filled with information 
+             about Eplan Versions currently installed on local machine.</param>
+             <returns>
+             Remote call Response.
+             </returns>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.StartEplan(System.String)">
+             <summary>
+             Starts an Eplan instance.
+            </summary>
+             <param name="strEplanFullPath">Full path of Eplan executable file.</param>
+            <returns>
+             Information about the started Eplan remote server.
+             If EPLAN application could not be started or if no communication could be established an exception Eplan.EplApi.RemoteClient.CommunicationException is thrown.
+             </returns>        
+             <exception cref="T:System.ComponentModel.Win32Exception">There was an error in opening the associated file.</exception>
+             <exception cref="T:System.ObjectDisposedException">The process object has already been disposed.</exception>
+             <exception cref="T:System.IO.FileNotFoundException">The PATH environment variable has a String containing quotes</exception>
+             <exception cref="T:Eplan.EplApi.RemoteClient.CommunicationException">EPLAN application could not be started or no communication is possible.</exception>
+             <remark>
+             If user rights management is active, a user and/or password should be set before calling StartEplan. Otherwise a user logging dialog will be shown
+             to introduce logging information.
+             if /NoUserRightsDialog EPLAN switch is used and user and/or password were not set, EPLAN will not start.
+             </remark>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.StartEplan(System.String,System.String)">
+             <summary>
+             Starts an Eplan instance with arguments.
+            </summary>
+             <param name="strEplanFullPath">Full path of Eplan executable file.</param>
+             <param name="arguments">Command-line arguments to pass when starting the process.</param>
+            <returns>
+             Information about the started Eplan remote server.
+             If EPLAN application could not be started or if no communication could be established an exception Eplan.EplApi.RemoteClient.CommunicationException is thrown.
+             </returns>
+             <remark>
+             If user rights management is active, a user and/or password should be set before calling StartEplan. Otherwise a user logging dialog will be shown
+             to introduce logging information.
+             if /NoUserRightsDialog EPLAN switch is used and user and/or password were not set, EPLAN will not start.
+             </remark>
+             <exception cref="T:System.ArgumentException">\Parameters are invalid.</exception>
+             <exception cref="T:System.ComponentModel.Win32Exception">There was an error in opening the associated file.</exception>
+             <exception cref="T:System.ObjectDisposedException">The process object has already been disposed.</exception>
+             <exception cref="T:System.IO.FileNotFoundException">The PATH environment variable has a String containing quotes</exception>
+             <exception cref="T:Eplan.EplApi.RemoteClient.CommunicationException">EPLAN application could not be started or no communication is possible.</exception>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.IEplanRemoteClient.StopEplan">
+             <summary>
+             Stops the Eplan instance which is connected to the current client.
+            </summary>        
+            <returns>
+             returns true if the connected Eplan instance could be shutdown otherwise false.        
+             </returns>
+             <remark>
+             </remark>
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.IEplanRemoteClient.License">
+             <summary>
+             License file name (*.lis).  This Property should be set before calling any StartEplan method.
+            </summary>
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.IEplanRemoteClient.User">
+             <summary>
+             User name.  This Property should be set before calling any StartEplan method.
+            </summary>
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.IEplanRemoteClient.Password">
+             <summary>
+             Password. This Property should be set before calling any StartEplan method.
+            </summary>
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.IEplanRemoteClient.SynchronousMode">
+             <summary>
+             Sets and gets the Synchronous mode.
+            </summary>
+             <remarks>
+             This property is set per default to false. This means, per default all calls, except Connect, are executed asynchronously.
+             You can change this behavior by setting this property to true in order to make synchronous calls.
+             When doing asynchronous calls there is no return values. The Server sends a response (EplanResponse) when the call is executed completely.
+             </remarks>        
+        </member>
+        <member name="T:Eplan.EplApi.RemoteClient.EplanRemoteClient">
+            <summary>
+            Eplan Remoting Client used to communicate with an Eplan
+            instance.
+            
+            Note that the binding name should be exactly
+            &quot;EplanRemotingClientBindingConfig&quot; otherwise it
+            will be ignored.
+            </summary>
+            <remarks>
+            A client application can has a config file
+            (ApplicationName.exe.config). This allows setting some WCF
+            communication parameters.
+            
+            &lt;configuration&gt;
+            
+            &lt;system.serviceModel&gt;
+            
+            &lt;bindings&gt;
+            
+            &lt;netTcpBinding&gt;
+            
+            &lt;binding name=&quot;EplanRemotingClientBindingConfig&quot;
+            sendTimeout=&quot;08:00:00&quot;&gt;
+            
+            &lt;/binding&gt;
+            
+            &lt;/netTcpBinding&gt;
+            
+            &lt;/bindings&gt;
+            
+            &lt;client&gt;
+            
+            &lt;endpoint binding=&quot;netTcpBinding&quot;
+            bindingConfiguration=&quot;EplanRemotingClientBindingConfig&quot;
+            /&gt;
+            
+            &lt;/client&gt;
+            
+            &lt;/system.serviceModel&gt;
+            
+            &lt;/configuration&gt;
+            
+            Be careful when editing WCF communication parameters. If
+            these are not set correctly, the application could not work
+            correctly! Example of a config file for a client application
+            used to set a SendTimeout to 8 hours: SendTimeout is used to
+            initialize the OperationTimeout, which governs the whole
+            process of sending a message, including receiving a reply
+            message for a request/reply service operation. This timeout
+            also applies when sending reply messages from a callback
+            contract method.
+            </remarks>                                                       
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.#ctor">
+             <summary>
+             Constructor.
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.Finalize">
+             <summary>
+             Destructor.
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.Dispose">
+             <summary>
+             Dispose.
+            </summary>       
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.Dispose(System.Boolean)">
+             <summary>
+             Dispose.
+            </summary>      
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.Connect(System.String,System.String)">
+             <summary>
+             Connect to Eplan Server.
+            </summary>
+            <param name="strCompterName">
+             Name or TCP-IP of the computer on which Eplan is running.
+            </param>
+            <param name="strPort">
+             Port number used from Eplan Service.      
+            </param>        
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.Connect(System.String,System.String,System.TimeSpan)">
+             <summary>
+             Connect to Eplan Server.
+            </summary>
+            <param name="strCompterName">
+             Name or TCP-IP of the computer on which Eplan is running.
+            </param>
+            <param name="strPort">
+             Port number used from Eplan Service.
+            </param>       
+             ///<param name="interval">
+             Waiting time of the connecting process. If the connecting time exceeds the value interval
+             a CommunicationException will be thrown.
+            </param>       
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.DisconnectInternal(System.Boolean)">
+             <summary>
+             Disconnect from Eplan Server.
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.Disconnect">
+             <summary>
+             Disconnect from Eplan Server.
+            </summary>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.ExecuteAction(System.String)">
+             <summary>
+             Execute an action.
+            </summary>
+            <param name="strFullAction">
+             Action name or action name and all used parameters and values.
+            </param>      
+             <returns>
+             Returns true if Action is called successfully. Otherwise returns false.
+             </returns>
+             <remarks>
+             In which mode this call is executed, synchronously or asynchronously, depends on the SynchronousMode property. 
+             Per default all calls are executed asynchronously (except Connect). You can change this behavior by setting the SynchronousMode 
+             property to true in order to make synchronous calls.
+             If the call is asynchronous, EPLAN application sends a completed-execution acknowledgment response when the call is completely executed.
+             The property AsyncCallCompleted in EplanResponse is set to true.
+             </remarks> 
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.ExecuteAction(System.String,Eplan.EplApi.Remoting.CallingContext@)">
+             <summary>
+             Call an action.
+            </summary>
+            <param name="strAction">
+             Action name or action name and all used parameters and values. Parameters and values could be set in calling Context.
+            </param>
+            <param name="context">
+             Calling context.
+            </param>
+             <returns>
+             Returns true if Action is called successfully. Otherwise returns false.
+             </returns>
+             <remarks> If the action did not succeed, an error message is reported in the calling context.</remarks>     
+             <remarks>
+             In which mode this call is executed, synchronously or asynchronously, depends on the SynchronousMode property. 
+             Per default all calls are executed asynchronously (except Connect). You can change this behavior by setting the SynchronousMode 
+             property to true in order to make synchronous calls.
+             </remarks>
+             <remarks> 
+             If the call is asynchronous, EPLAN application sends a completed-execution acknowledgment response when the call is completely executed.
+             The property AsyncCallCompleted in EplanResponse is set to true.
+             </remarks> 
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.SelectEplanObjects(System.String,System.Collections.Specialized.StringCollection,System.Boolean)">
+             <summary>
+             Selects objects in GED
+            </summary>
+            <param name="strFullProjectName">Full link file name of the
+                                          project. The already selected objects will be deselected.</param>		
+             <param name="objectIds">List of Ids of objects to be selected.
+             Note that an object Id MUST have three parts separated with slash: Type/Id/transient flag. Transient flag can have 2 values, 0 means object is persistent, 1 means object is transient.
+             e.g.: 17/142/0. When you get the object Id from <c>Properties.PROPUSER_DBOBJECTID</c>, you have to remove the first number (project id) and the first '/' from this String (see example).</param>
+             <param name="bDeselectAll">Deselect all objects which were already selected.</param>        
+             <returns>
+             Returns an EplanResponse object.
+             </returns>    
+             <remarks> The already selected objects will be deselected.</remarks>
+             <remarks>
+             In which mode this call is executed, synchronously or asynchronously, depends on the SynchronousMode property. 
+             Per default all calls are executed asynchronously (except Connect). You can change this behavior by setting the SynchronousMode 
+             property to true in order to make synchronous calls.
+             </remarks>
+             <remarks> 
+             If the call is asynchronous, EPLAN application sends a completed-execution acknowledgment response when the call is completely executed.
+             The property AsyncCallCompleted in EplanResponse is set to true.
+             </remarks>
+             <remarks>Non thread-safe method.</remarks>        
+             <example>
+             The following examples shows a method to mark all the motors on a given schematic page.
+            
+             <code lang="C#">
+             private static void MarkMotorsOnPage(Page page)
+            {
+            		DMObjectsFinder dMObjectsFinder = new DMObjectsFinder(page.Project);
+            		FunctionsFilter functionsFilter = new FunctionsFilter();
+            		functionsFilter.Page = page;
+            		functionsFilter.Category = Function.Enums.Category.Motor;
+            		Function[] functions = dMObjectsFinder.GetFunctions(functionsFilter);
+            		StringCollection scFuncIds = new StringCollection();
+            		foreach (Function function in functions)
+            		{
+            			String objectId = function.Properties.PROPUSER_DBOBJECTID;
+            			int idxOfSlash = objectId.IndexOf("/", 1, objectId.Length - 1, StringComparison.InvariantCultureIgnoreCase);
+            			String objectIdWithoutProjectId = objectId.Substring(idxOfSlash + 1, (objectId.Length - idxOfSlash - 1));
+            			scFuncIds.Add(objectIdWithoutProjectId);
+            		}
+            
+                 // Connect to server via remoting client
+                 EplanRemoteClient oClient = new EplanRemoteClient();
+                 try{       
+                      oClient.Connect(Environment.MachineName, "60000"); //In this case the Eplan server was started on port 60000
+                      //Connection is successful then select objects 
+            		     oClient.SelectObjects(page.Project.ProjectLinkFilePath, scFuncIds, true);
+                  }
+                  catch(Exception) 
+                  {
+                     // Connection to server failed!
+                  }
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.LockAllEplanObjects(System.String)">
+             <summary>
+             Lock all objects in given project.
+            </summary>        
+            <param name="strFullProjectName">Full link file name of the project.</param>        
+             <returns>
+             Returns an EplanResponse object.
+             </returns>
+             <remarks>
+             In which mode this call is executed, synchronously or asynchronously, depends on the SynchronousMode property. 
+             Per default all calls are executed asynchronously (except Connect). You can change this behavior by setting the SynchronousMode 
+             property to true in order to make synchronous calls.
+             </remarks>
+             <remarks> 
+             If the call is asynchronous, EPLAN application sends a completed-execution acknowledgment response when the call is completely executed.
+             The property AsyncCallCompleted in EplanResponse is set to true.
+             </remarks> 
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.UnlockAllEplanObjects(System.String)">
+             <summary>
+             Unlock all objects in given project.
+            </summary>
+            <param name="strFullProjectName">Full link file name of the project.</param>  
+             <returns>
+             Returns an EplanResponse object.
+             </returns>   
+             <remarks>
+             In which mode this call is executed, synchronously or asynchronously, depends on the SynchronousMode property. 
+             Per default all calls are executed asynchronously (except Connect). You can change this behavior by setting the SynchronousMode 
+             property to true in order to make synchronous calls.
+             </remarks>
+             <remarks> 
+             If the call is asynchronous, EPLAN application sends a completed-execution acknowledgment response when the call is completely executed.
+             The property AsyncCallCompleted in EplanResponse is set to true.
+             </remarks> 
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.Ping">
+             <summary>
+             Ping the Eplan Server.
+            </summary>
+             <returns>
+             Returns true if Eplan Server is reachable. Otherwise returns false.
+             </returns>   
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.GetActiveEplanServersOnLocalMachine(System.Collections.Generic.List{Eplan.EplApi.RemoteClient.EplanServerData}@)">
+             <summary>
+             Get Eplan Servers which are currently active on local machine.
+            </summary>
+             <param name="lServers">List to be filled with information 
+             about Eplan remote servers currently active on local machine.</param>       
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.GetInstalledEplanVersionsOnLocalMachine(System.Collections.Generic.List{Eplan.EplApi.RemoteClient.EplanServerData}@)">
+             <summary>
+             Get Eplan versions which are currently installed on local machine.
+            </summary>
+             <param name="lEplanVersions">List to be filled with information 
+             about Eplan Versions currently installed on local machine.</param>        
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.StartEplan(System.String)">
+             <summary>
+             Starts an Eplan instance.
+            </summary>
+             <param name="strEplanFullPath">Full path of Eplan executable file.</param>
+            <returns>
+             Information about the started Eplan remote server.
+             If EPLAN application could not be started or if no communication could be established an exception Eplan.EplApi.RemoteClient.CommunicationException is thrown.
+             </returns>        
+             <exception cref="T:System.ComponentModel.Win32Exception">There was an error in opening the associated file.</exception>
+             <exception cref="T:System.ObjectDisposedException">The process object has already been disposed.</exception>
+             <exception cref="T:System.IO.FileNotFoundException">The PATH environment variable has a String containing quotes</exception>
+             <exception cref="T:Eplan.EplApi.RemoteClient.CommunicationException">EPLAN application could not be started or no communication is possible.</exception>
+             <remark>
+             If user rights management is active, a user and/or password should be set before calling StartEplan. Otherwise a user logging dialog will be shown
+             to introduce logging information.
+             if /NoUserRightsDialog EPLAN switch is used and user and/or password were not set, EPLAN will not start.
+             </remark>   
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.StartEplan(System.String,System.String)">
+             <summary>
+             Starts an Eplan instance with arguments.
+            </summary>
+             <param name="strEplanFullPath">Full path of Eplan executable file.</param>
+             <param name="arguments">Command-line arguments to pass when starting the process.</param>
+            <returns>
+             Information about the started Eplan remote server.
+             If EPLAN application could not be started or if no communication could be established an exception Eplan.EplApi.RemoteClient.CommunicationException is thrown.
+             </returns>
+              <remark>
+             If user rights management is active, a user and/or password should be set before calling StartEplan. Otherwise a user logging dialog will be shown
+             to introduce logging information.
+             if /NoUserRightsDialog EPLAN switch is used and user and/or password were not set, EPLAN will not start.
+             </remark>
+             <exception cref="T:System.ArgumentException">\Parameters are
+                                                 invalid.</exception>
+             <exception cref="T:System.ComponentModel.Win32Exception">There was an error in opening the associated file.</exception>
+             <exception cref="T:System.ObjectDisposedException">The process object has already been disposed.</exception>
+             <exception cref="T:System.IO.FileNotFoundException">The PATH environment variable has a String containing quotes</exception>  
+             <exception cref="T:Eplan.EplApi.RemoteClient.CommunicationException">EPLAN application could not be started or no communication is possible.</exception>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.StopEplan">
+             <summary>
+             Stops the Eplan instance which is connected to the current client.
+            </summary>        
+            <returns>
+             returns true if the connected Eplan instance could be shutdown otherwise false.        
+             </returns>
+             <remark>
+             </remark>        
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanRemoteClient.License">
+             <summary>
+             License file name (*.lis).
+            </summary>
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanRemoteClient.User">
+             <summary>
+             Eplan log-in user used for Rights Management.
+             User settings will be used from this user.
+            </summary>
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanRemoteClient.Password">
+             <summary>
+             Eplan log-in password used for Rights Management.
+            </summary>
+        </member>
+        <member name="P:Eplan.EplApi.RemoteClient.EplanRemoteClient.SynchronousMode">
+             <summary>
+             Sets and gets the Synchronous mode.
+            </summary>
+             <remarks>
+             This property is set per default to false. This means, per default all calls, except Connect, are executed asynchronously.
+             You can change this behavior by setting this property to true in order to make synchronous calls.
+             When doing asynchronous calls there is no return values. The Server sends a response (EplanResponse) when the call is executed completely.
+             </remarks>        
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.DisableSynchronizingCalls(System.Boolean)">
+             <summary>
+             Disable synchronizing calls.
+             The execution of remote calls are synchronized in EPLAN. A remote call is executed only if the EPLAN Application is in an idle situation and there is no action running.
+             Otherwise the call will wait until the EPLAN application is idle and no action is running.
+             This property can be used to disable this mode. If calls synchronization is disabled, remote calls are executed in EPLAN although the EPLAN application is not in an idle situation.
+            </summary>        
+        </member>
+        <member name="F:Eplan.EplApi.RemoteClient.EplanRemoteClient.ResponseArrivedFromEplanServer">
+            <summary>
+            Handler to receive Eplan server notifications. 
+            </summary>
+            <example>
+             myEplanClient.ResponseArrivedFromEplanServer += OnResponseArrivedHandler;
+             static void OnResponseArrivedHandler(EplanResponse response)
+             {
+               //Handle Server response.         
+             } 	
+            </example>		
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            Contains method.
+            ///</summary>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.StartEplanInternal(System.String,System.String)">
+            If EPLAN application could not be started or if no communication could be established an exception Eplan.EplApi.RemoteClient.CommunicationException is thrown.
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.GetInstalledEplanVersionsInternal2(Microsoft.Win32.RegistryKey,System.Collections.Generic.List{Eplan.EplApi.RemoteClient.EplanServerData}@)">
+            <summary>
+            Get all installed Eplan versions - internal
+            ///</summary>
+        </member>
+        <member name="M:Eplan.EplApi.RemoteClient.EplanRemoteClient.GetInstalledEplanVersionsInternal(System.Collections.Generic.List{Eplan.EplApi.RemoteClient.EplanServerData}@)">
+            <summary>
+            Get all installed Eplan versions
+            ///</summary>
+        </member>
+        <member name="T:Eplan.Epl.Api.Remote.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Eplan.Epl.Api.Remote.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Eplan.Epl.Api.Remote.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Eplan.Epl.Api.Remote.Properties.Resources.ClientNotConnected">
+            <summary>
+              Looks up a localized string similar to No connection to EPLAN-Server..
+            </summary>
+        </member>
+        <member name="P:Eplan.Epl.Api.Remote.Properties.Resources.NoConnection">
+            <summary>
+              Looks up a localized string similar to EPLAN could not be started or the TCP-Port {0} is either in use or could not be opened..
+            </summary>
+        </member>
+        <member name="P:Eplan.Epl.Api.Remote.Properties.Resources.NoPortAvailable">
+            <summary>
+              Looks up a localized string similar to No free TCP-Port available..
+            </summary>
+        </member>
+        <member name="P:Eplan.Epl.Api.Remote.Properties.Resources.PortNotFree">
+            <summary>
+              Looks up a localized string similar to The TCP-Port {0} is already used by another process..
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings format="2">
+  <CAT name="STATION">
+    <MOD name="EplanEplApiEServicesModule">
+      <Setting name="Messages" type="string" info="Meldungen in Assemblies" />
+      <Setting name="Verification" type="string" info="Prüfungen in Assemblies" />
+      <Setting name="InterruptionPointVerification" type="string" info="Prüfungen in Assemblies" />
+      <Setting name="PotentialVerification" type="string" info="Prüfungen in Assemblies" />
+      <Setting name="FunctionVerification" type="string" info="Prüfungen in Assemblies" />
+    </MOD>
+  </CAT>
+</Settings>

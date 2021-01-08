@@ -1,0 +1,7 @@
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\AutoCopy\bin\Debug\AutoCopy.exe.config
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\AutoCopy\bin\Debug\AutoCopy.exe
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\AutoCopy\bin\Debug\AutoCopy.pdb
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\AutoCopy\obj\Debug\AutoCopy.csprojAssemblyReference.cache
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\AutoCopy\obj\Debug\AutoCopy.csproj.CoreCompileInputs.cache
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\AutoCopy\obj\Debug\AutoCopy.exe
+D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\AutoCopy\obj\Debug\AutoCopy.pdb
