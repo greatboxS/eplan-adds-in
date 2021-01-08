@@ -1,6 +1,0 @@
-D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EplAutoTuneConsole\bin\Debug\EplAutoTuneConsole.exe.config
-D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EplAutoTuneConsole\bin\Debug\EplAutoTuneConsole.exe
-D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EplAutoTuneConsole\bin\Debug\EplAutoTuneConsole.pdb
-D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EplAutoTuneConsole\obj\Debug\EplAutoTuneConsole.csproj.CoreCompileInputs.cache
-D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EplAutoTuneConsole\obj\Debug\EplAutoTuneConsole.exe
-D:\vs_19\CSharp\2_Winform\Eplan\EplAutoTune\EplanAddInSln\EplAutoTuneConsole\obj\Debug\EplAutoTuneConsole.pdb
